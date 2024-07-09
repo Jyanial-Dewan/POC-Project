@@ -5,7 +5,7 @@ import { IoListOutline } from "react-icons/io5";
 import { BsEnvelope } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
 import { NavLink } from "react-router-dom";
-import logo from "../../public/Group 3.svg";
+import logo from "../../public/Images/logo-2.png";
 import { useGlobalContext } from "../Context/GlobalContext";
 
 const Topbar = () => {
@@ -13,7 +13,7 @@ const Topbar = () => {
 
   return (
     <div className="flex justify-between items-center h-[4rem] w-full bg-white shadow-md fixed px-6">
-      <div className="flex gap-4">
+      <div className="flex items-center gap-4">
         {open? 
         <button onClick={() => setOpen(false)} className="text-2xl h-[2rem] w-[2rem] flex justify-center items-center bg-blue-100 rounded-full duration-500 hover:rotate-[360deg]">
             <IoMdClose/>
@@ -21,7 +21,7 @@ const Topbar = () => {
         <button onClick={() => setOpen(true)} className="text-2xl h-[2rem] w-[2rem] flex justify-center items-center bg-blue-100 rounded-full duration-500 hover:rotate-[360deg]">
             <IoMenuOutline/>
         </button>}
-        <img src={logo} />
+        <img src={logo} className="w-[140px] h-[41px]"/>
       </div>
 
       <div className="flex items-center gap-10">

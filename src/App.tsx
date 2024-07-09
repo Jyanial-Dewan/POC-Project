@@ -7,6 +7,9 @@ import NotificationPage from "./Pages/NotificationPage"
 import RiskManagementPage from "./Pages/RiskManagementPage"
 import ControlManagementPage from "./Pages/ControlManagementPage"
 import IssueManagementPage from "./Pages/IssueManagementPage"
+import ContinuousControlManagementPage from "./Pages/ContinuousControlManagementPage"
+import ResultMangementPage from "./Pages/ResultMangementPage"
+import LoginPage from "./Pages/LoginPage"
 import { GlobalContextProvider } from "./Context/GlobalContext"
 
 function App() {
@@ -15,6 +18,7 @@ function App() {
   return (
     <GlobalContextProvider>
       <Routes>
+        <Route path="/log-in" element={<LoginPage/>}/>
         <Route path="/" element={<Layout/>}>
           <Route path="/home" element={<HomePage/>}/>
           <Route path="/alerts" element={<AlertsPage/>}/>
@@ -23,6 +27,8 @@ function App() {
           <Route path="/risk-management" element={<RiskManagementPage/>}/>
           <Route path="/control-management" element={<ControlManagementPage/>}/>
           <Route path="/issue-management" element={<IssueManagementPage/>}/>
+          <Route path="/continuous-control-management" element={<ContinuousControlManagementPage/>}/>
+          <Route path="/result-management" element={<ResultMangementPage/>}/>
         </Route>
       </Routes>
     </GlobalContextProvider>

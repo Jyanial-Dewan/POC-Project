@@ -21,7 +21,7 @@ const ProSideBar = () => {
     const location = useLocation();
     const pathname = location.pathname;
 
-    const menuData: MenuData[] = menu
+    const menuData: MenuData[] = menu;
 
     const getMenuitemStyle = (path: string) => {
         if(pathname === path) {
@@ -31,13 +31,13 @@ const ProSideBar = () => {
 
     const getSubMenuStyle = (paths: string[]) => {
         if(paths.includes(pathname)) {
-            return "bg-blue-100"
+            return "bg-blue-100 border-l-4 border-red-600"
         }
     }
 
 return (
     <Sidebar collapsed={!open} transitionDuration={1000} style={{height: "100vh", backgroundColor: "white", marginTop: "5rem", position: "fixed", fontSize: "13px"}} >
-        <Menu>
+        <Menu className='relative'>
             {menuData.map((menu) => (
                 <SubMenu className={getSubMenuStyle(menu.paths)} key={menu.submenu} label={menu.submenu} icon={<img src={menu.submenuIcon} className='w-[20px] h-[20px]'/>}>
                     {menu.menuItems.map(item => (
