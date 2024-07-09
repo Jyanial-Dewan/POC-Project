@@ -4,9 +4,9 @@
         "submenuIcon": "https://procg.netlify.app/finance.svg",
         "paths": ["/risk-management", "/control-management", "/control-management"],
         "menuItems" : [
-            {"name": "Risk Management", "icon": "https://procg.netlify.app/risk-management.png-management.svg", "path": "/risk-management"},
+            {"name": "Risk Management", "icon": "https://procg.netlify.app/risk-management.png", "path": "/risk-management"},
             {"name": "Control Management", "icon": "https://procg.netlify.app/control-management.svg", "path": "/control-management"},
-            {"name": "Issue Management", "icon": "https://procg.netlify.app/issue-management.svg", "path": "/control-management"}
+            {"name": "Issue Management", "icon": "https://procg.netlify.app/issue-management.svg", "path": "/issue-management"}
         ]
     },
     {
