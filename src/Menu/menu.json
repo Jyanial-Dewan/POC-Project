@@ -1,0 +1,59 @@
+[
+    {
+        "submenu": "Finance",
+        "submenuIcon": "https://procg.netlify.app/finance.svg",
+        "paths": ["/risk-management", "/control-management", "/control-management"],
+        "menuItems" : [
+            {"name": "Risk Management", "icon": "https://procg.netlify.app/risk-management.png-management.svg", "path": "/risk-management"},
+            {"name": "Control Management", "icon": "https://procg.netlify.app/control-management.svg", "path": "/control-management"},
+            {"name": "Issue Management", "icon": "https://procg.netlify.app/issue-management.svg", "path": "/control-management"}
+        ]
+    },
+    {
+        "submenu": "Continuous Monitoring",
+        "submenuIcon": "https://procg.netlify.app/continuous-monitoring.svg",
+        "paths": ["/continuous-control-management", "/result-management"],
+        "menuItems" : [
+            {"name": "Continuous Control Management", "icon": "https://procg.netlify.app/continuous-control-management.svg", "path": "/continuous-control-management"},
+            {"name": "Result Management", "icon": "https://procg.netlify.app/result-management.svg", "path": "/result-management"}
+        ]
+    },
+    {
+        "submenu": "Tools",
+        "submenuIcon": "https://procg.netlify.app/tools.svg",
+        "paths": ["/setup-and-administration"],
+        "menuItems" : [
+            {"name": "Setup and Administration", "icon": "https://procg.netlify.app/setup-and-administration.svg", "path": "/setup-and-administration"}
+        ]
+    },
+    {
+        "submenu": "Controls",
+        "submenuIcon": "https://procg.netlify.app/controls.png",
+        "paths": ["/manage-controls"],
+        "menuItems" : [
+            {"name": "Manage Controls", "icon": "https://procg.netlify.app/manage-controls.png", "path": "/manage-controls"}
+        ]
+    },
+    {
+        "submenu": "Access Models",
+        "submenuIcon": "https://procg.netlify.app/access-model.png",
+        "paths": ["/manage-access-models", "/create-access-model"],
+        "menuItems" : [
+            {"name": "Manage Access Models", "icon": "https://procg.netlify.app/manage-access-models.png", "path": "/manage-access-models"},
+            {"name": "Create Access Model", "icon": "https://procg.netlify.app/create-access-model.png", "path": "/create-access-model"}
+        ]
+    },
+    {
+        "submenu": "Manage Administration",
+        "submenuIcon": "https://procg.netlify.app/manage-administration.png",
+        "paths": ["/manage-access-entitlements", "/manage-access-global-conditions", "/create-access-global-conditions", "/manage-access-path-conditions", "/manage-user-defined-objects",  "/manage-ccm-jobs"],
+        "menuItems" : [
+            {"name": "Manage Access Entitlements", "icon": "https://procg.netlify.app/risk-management.png", "path": "/manage-access-entitlements"},
+            {"name": "Manage Access Global Conditions", "icon": "https://procg.netlify.app/continuous-control-management.svg", "path": "/manage-access-global-conditions"},
+            {"name": "Create Access Global Conditions", "icon": "https://procg.netlify.app/result-management.svg", "path": "/create-access-global-conditions"},
+            {"name": "Manage Access Path Conditions", "icon": "https://procg.netlify.app/result-management.svg", "path": "/manage-access-path-conditions"},
+            {"name": "Manage User Defined Objects", "icon": "https://procg.netlify.app/result-management.svg", "path": "/manage-user-defined-objects"},
+            {"name": "Manage CCM Jobs", "icon": "https://procg.netlify.app/result-management.svg", "path": "/manage-ccm-jobs"}
+        ]
+    }
+]

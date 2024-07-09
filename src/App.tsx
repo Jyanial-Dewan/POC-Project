@@ -5,6 +5,8 @@ import AlertsPage from "./Pages/AlertsPage"
 import TasksPage from "./Pages/TasksPage"
 import NotificationPage from "./Pages/NotificationPage"
 import RiskManagementPage from "./Pages/RiskManagementPage"
+import ControlManagementPage from "./Pages/ControlManagementPage"
+import IssueManagementPage from "./Pages/IssueManagementPage"
 import { GlobalContextProvider } from "./Context/GlobalContext"
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
           <Route path="/tasks" element={<TasksPage/>}/>
           <Route path="/notifications" element={<NotificationPage/>}/>
           <Route path="/risk-management" element={<RiskManagementPage/>}/>
+          <Route path="/control-management" element={<ControlManagementPage/>}/>
+          <Route path="/issue-management" element={<IssueManagementPage/>}/>
         </Route>
       </Routes>
     </GlobalContextProvider>
