@@ -1,7 +1,8 @@
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { useGlobalContext } from '../Context/GlobalContext';
 import { Link, useLocation } from 'react-router-dom';
-import menu from '../Menu/menu.json'
+import menu from '../Menu/menu.json';
+
 
 interface MenuItems {
     name: string;
@@ -36,7 +37,7 @@ const ProSideBar = () => {
     }
 
 return (
-    <Sidebar collapsed={!open} transitionDuration={1000} style={{height: "100vh", backgroundColor: "white", marginTop: "5rem", position: "fixed", fontSize: "13px"}} >
+    <Sidebar collapsed={!open} transitionDuration={1000} style={{height: "88vh", marginTop: "5rem", backgroundColor: "white", position: "fixed", fontSize: "13px", paddingBottom: "1rem"}} >
         <Menu className='relative'>
             {menuData.map((menu) => (
                 <SubMenu className={getSubMenuStyle(menu.paths)} key={menu.submenu} label={menu.submenu} icon={<img src={menu.submenuIcon} className='w-[20px] h-[20px]'/>}>

@@ -3,14 +3,17 @@ import ProSideBar from "../Components/ProSideBar"
 import { Outlet } from "react-router-dom"
 import { Toaster } from "react-hot-toast"
 
+
 const Layout = () => {
+  
   return (
-    <div>
+    <div className="flex flex-col">
       <Topbar/>
-      
       <Toaster/>
-      <ProSideBar/>
-      <Outlet/>
+      <div className="flex w-full">
+        <ProSideBar/>
+        <Outlet/>
+      </div>
     </div>
   )
 }
