@@ -2,7 +2,7 @@
     {
         "submenu": "Finance",
         "submenuIcon": "https://procg.netlify.app/finance.svg",
-        "paths": ["/risk-management", "/control-management", "/control-management"],
+        "paths": ["/risk-management", "/control-management", "/issue-management"],
         "menuItems" : [
             {"name": "Risk Management", "icon": "https://procg.netlify.app/risk-management.png", "path": "/risk-management"},
             {"name": "Control Management", "icon": "https://procg.netlify.app/control-management.svg", "path": "/control-management"},
