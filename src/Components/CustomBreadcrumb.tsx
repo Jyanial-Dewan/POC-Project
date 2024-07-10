@@ -10,16 +10,16 @@ interface CustomBreadcrumbProps {
 
 const CustomBreadcrumb = ({middleRoute, middleRoutePath, endRoute, endRoutePath}: CustomBreadcrumbProps) => {
   return (
-    <div className="flex gap-8 pl-8 rounded-3xl shadow-md bg-[#F7F6F2]">
-        <Link to={'/'} className="py-1 rounded-r-3xl flex items-center gap-8 bg-[#F7F6F2] text-[#4B6587] pr-8 hover:text-[#C8C6C6]">
+    <div className="flex rounded-r-3xl shadow-md shadow-black/20 bg-[#F0F0F0]">
+        <Link to={'/'} className="py-1 pl-8 rounded-r-3xl flex items-center gap-8 bg-[#F0F0F0] text-[#213555] pr-8 hover:text-[#4F709C]">
             <p>Home</p>
             <RiArrowRightDoubleFill/>
         </Link>
-        {middleRoute? <Link to={middleRoutePath? middleRoutePath: "#"} className="py-1 rounded-r-3xl flex items-center gap-8 bg-[#F7F6F2] text-[#4B6587] pr-4 hover:text-[#C8C6C6]">
+        {middleRoute? <Link to={middleRoutePath? middleRoutePath: "#"} className="py-1 rounded-r-3xl flex items-center gap-8 bg-[#F0F0F0] text-[#213555] pr-4 hover:text-[#4F709C]">
             <p>{middleRoute}</p>
             <RiArrowRightDoubleFill/>
         </Link>: null}
-        {endRoute? <Link className="py-1 pl-4 pr-8 rounded-r-3xl bg-[#4B6587] text-[#F7F6F2] hover:text-[#C8C6C6]" to={endRoutePath? endRoutePath: "#"}>
+        {endRoute? <Link className="py-1 pl-4 pr-8 rounded-r-3xl bg-[#213555] text-[#F0F0F0] hover:text-[#4F709C]" to={endRoutePath? endRoutePath: "#"}>
         {endRoute}
         </Link> : null}
     </div>
