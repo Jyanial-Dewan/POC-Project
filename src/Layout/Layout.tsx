@@ -7,11 +7,11 @@ import { Toaster } from "react-hot-toast"
 const Layout = () => {
   
   return (
-    <div className="flex flex-col">
+    <div>
       <Topbar/>
-      <Toaster/>
       <div className="flex w-full">
-        <ProSideBar/>
+        <ProSideBar />
+        <Toaster position="bottom-right" reverseOrder={false}/>
         <Outlet/>
       </div>
     </div>

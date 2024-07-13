@@ -1,12 +1,14 @@
 import { ReactNode, createContext, useContext, useState } from "react";
 
-type GlobalContextProviderProps = {
+interface GlobalContextProviderProps {
     children: ReactNode
 }
 
-type GlobalContex = {
+interface GlobalContex {
     open: boolean;
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    token: string;
+    setToken: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const GlobalContex = createContext({} as GlobalContex)
@@ -16,10 +18,11 @@ export function useGlobalContext() {
 }
 
 export function GlobalContextProvider({children}: GlobalContextProviderProps) {
-    const [open, setOpen] = useState<boolean>(false)
-
+    const [open, setOpen] = useState<boolean>(false);
+    const [token, setToken] = useState<string>('')
+    
     return (
-        <GlobalContex.Provider value={{open, setOpen}}>
+        <GlobalContex.Provider value={{open, setOpen, token, setToken}}>
             {children}
         </GlobalContex.Provider>
     )

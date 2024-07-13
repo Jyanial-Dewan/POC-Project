@@ -1,10 +1,53 @@
 import laptop from '../../public/Images/macbook.svg'
 import logo from '../../public/Images/logo-2.png';
 import languages from '../../public/Images/languages.svg';
-import down from '../../public/Images/chevron-down.svg'
+import down from '../../public/Images/chevron-down.svg';
+import { useGlobalContext } from '../Context/GlobalContext'
+import React, { useState } from 'react';
+
+interface formData {
+    email: string;
+    password: string
+}
 
 
 const LoginPage = () => {
+    const {setToken} = useGlobalContext();
+    const [formData, setFormData] = useState<formData>({email: '', password: ''});
+    
+    
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault();
+
+        const {name, value} = e.target;
+
+        setFormData((prevData) => ({
+            ...prevData, 
+            [name]: value,
+        }));
+    }
+    
+    const login = async () => {
+        try {
+            const response = await fetch('http://localhost:2333/login', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(formData),
+            });
+            const data = await response.json();
+            console.log(data.error);
+            if(response.status !== 200) {
+                alert(data.error)
+            }
+            setToken(data.access_token)
+            localStorage.setItem("token", JSON.stringify(data.access_token))
+          } catch (error) {
+            console.log('There was a problem with the fetch operation:', error);
+          }
+    }
+
   return (
     <section className="grid grid-cols-7 w-full h-[100vh]">
         <div className='bg-slate-100 col-start-1 col-end-5 h-full flex justify-center items-center'>
@@ -20,11 +63,21 @@ const LoginPage = () => {
             <div className='flex flex-col gap-2 mt-2'>
                 <div className='flex flex-col gap-1'>
                     <label className='text-slate-500'>Email Address</label>
-                    <input type="text" placeholder='Enter email address' className='text-slate-500 pl-4 w-full h-8 border-2 border-slate-500 rounded-md outline-none' />
+                    <input type="text" 
+                            placeholder='Enter email address'
+                            name='email'
+                            value={formData.email} 
+                            onChange={handleChange}
+                            className='text-slate-500 pl-4 w-full h-8 border-2 border-slate-500 rounded-md outline-none' />
                 </div>
                 <div className='flex flex-col gap-1'>
                     <label className='text-slate-500'>Password</label>
-                    <input type="text" placeholder='Enter password' className='text-slate-500 pl-4 w-full h-8 border-2 border-slate-500 rounded-md outline-none' />
+                    <input type="text" 
+                            placeholder='Enter password' 
+                            name='password'
+                            value={formData.password}
+                            onChange={handleChange}
+                            className='text-slate-500 pl-4 w-full h-8 border-2 border-slate-500 rounded-md outline-none' />
                 </div>
             </div>
             <div className='flex justify-between mt-1'>
@@ -35,7 +88,7 @@ const LoginPage = () => {
                 <p className='text-blue-700'>Forget Password?</p>
             </div>
             <div className='flex flex-col gap-2 mt-4'>
-                <button className='h-8 w-full bg-red-500 rounded-md text-white'>Login</button>
+                <button onClick={login} className='h-8 w-full bg-red-500 rounded-md text-white'>Login</button>
                 <div className='flex justify-between items-center'>
                     <div className='w-[183px] h-[1px] bg-slate-500'></div>
                     <p>OR</p>
