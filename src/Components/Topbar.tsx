@@ -63,8 +63,8 @@ const Topbar = () => {
           <DropdownMenuTrigger className="focus: outline-none">
             <img src="https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="w-[2.5rem] h-[2.5rem] rounded-full object-cover object-center" />
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="bg-[#F5F5F5] text-black flex flex-col gap-1 w-40 pl-4 pb-4 pt-2 mt-[0.6rem]">
-            <DropdownMenuLabel className="pb-1 border-b border-black/50">My Account</DropdownMenuLabel>
+          <DropdownMenuContent className="bg-[#f3f3f3] text-[#250001] flex flex-col gap-1 w-40 pl-4 pb-4 pt-2 mt-[0.6rem]">
+            <DropdownMenuLabel className="pb-1 border-b border-[#250001]/50">My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <Link className="hover:translate-x-1 duration-300" to="/profile">
               <DropdownMenuItem className="flex gap-2">
@@ -85,7 +85,7 @@ const Topbar = () => {
               </DropdownMenuItem>
             </Link>
             <DropdownMenuSeparator className="text-slate-100" />
-            <DropdownMenuItem onClick={handleSignOut} className="text-[#A91D3A] cursor-pointer flex items-center gap-1 hover:translate-x-1 duration-300 pt-1 border-t border-black/50">
+            <DropdownMenuItem onClick={handleSignOut} className="text-[#a50104] cursor-pointer flex items-center gap-1 hover:translate-x-1 duration-300 pt-1 border-t border-[#250001]/50">
               <MdLogout className="text-lg"/>
               <p>Sign Out</p>
             </DropdownMenuItem>

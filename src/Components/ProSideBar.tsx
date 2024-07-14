@@ -37,12 +37,14 @@ const ProSideBar = () => {
     }
 
 return (
-    <Sidebar collapsed={!open} transitionDuration={1000} style={{height: "88vh", marginTop: "5rem", backgroundColor: "white", position: "fixed", fontSize: "13px", paddingBottom: "1rem"}} >
+    <Sidebar collapsed={!open} transitionDuration={1000} style={{height: "88vh", marginTop: "5rem", backgroundColor: "white", position: "fixed", fontSize: "13px", paddingBottom: "1rem", overflowX: "visible"}} >
         <Menu className='relative'>
             {menuData.map((menu) => (
                 <SubMenu className={getSubMenuStyle(menu.paths)} key={menu.submenu} label={menu.submenu} icon={<img src={menu.submenuIcon} className='w-[20px] h-[20px]'/>}>
                     {menu.menuItems.map(item => (
-                        <MenuItem className={getMenuitemStyle(item.path)} key={item.name} component={<Link to={item.path}/>} icon={<img src={item.icon} className='w-[20px] h-[20px]'/>}>{item.name}</MenuItem>
+                        <MenuItem className={getMenuitemStyle(item.path)} style={{fontSize: "11px"}} key={item.name} component={<Link to={item.path}/>}>
+                            <p>{item.name}</p>
+                        </MenuItem>
                     ))}
                 </SubMenu>
             ))}

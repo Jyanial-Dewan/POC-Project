@@ -5,6 +5,7 @@ import down from '../../public/Images/chevron-down.svg';
 import { useGlobalContext } from '../Context/GlobalContext'
 import React, { useState } from 'react';
 
+
 interface formData {
     email: string;
     password: string
@@ -29,7 +30,7 @@ const LoginPage = () => {
     
     const login = async () => {
         try {
-            const response = await fetch('http://localhost:2333/login', {
+            const response = await fetch('http://localhost:3000/login', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -42,7 +43,7 @@ const LoginPage = () => {
                 alert(data.error)
             }
             setToken(data.access_token)
-            localStorage.setItem("token", JSON.stringify(data.access_token))
+           localStorage.setItem("token", JSON.stringify(data.access_token))
           } catch (error) {
             console.log('There was a problem with the fetch operation:', error);
           }
