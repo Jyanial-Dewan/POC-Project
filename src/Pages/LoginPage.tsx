@@ -30,7 +30,7 @@ const LoginPage = () => {
     
     const login = async () => {
         try {
-            const response = await fetch('http://129.146.85.244:3000/login', {
+            const response = await fetch('/api/v2/login', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
