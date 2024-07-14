@@ -4,6 +4,8 @@ import languages from '../../public/Images/languages.svg';
 import down from '../../public/Images/chevron-down.svg';
 import { useGlobalContext } from '../Context/GlobalContext'
 import React, { useState } from 'react';
+import axios from 'axios';
+
 
 
 interface formData {
@@ -30,22 +32,15 @@ const LoginPage = () => {
     
     const login = async () => {
         try {
-            const response = await fetch('/api/v2/login', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(formData),
+            const response = await axios.post("/api/v2/login", {
+              email: formData.email,
+              password: formData.password,
             });
-            const data = await response.json();
-            console.log(data.error);
-            if(response.status !== 200) {
-                alert(data.error)
-            }
-            setToken(data.access_token)
-           localStorage.setItem("token", JSON.stringify(data.access_token))
+            console.log(response.data);
+            setToken(response.data.access_token);
+            localStorage.setItem("token", JSON.stringify(response.data.access_token));
           } catch (error) {
-            console.log('There was a problem with the fetch operation:', error);
+            console.log("There was a problem with the fetch operation:", error);
           }
     }
 
