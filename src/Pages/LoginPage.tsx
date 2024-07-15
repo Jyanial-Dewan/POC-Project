@@ -45,6 +45,7 @@ const LoginPage = () => {
         }
       )
       .then((res) => {
+        console.log("login: ", res);
         setToken(res.data.access_token);
         Cookies.set("token", res.data.access_token, {
           expires: 7,
