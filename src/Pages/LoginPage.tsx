@@ -51,6 +51,7 @@ const LoginPage = () => {
         Cookies.set("token", res.data.access_token, {
           expires: 7,
           secure: true,
+          sameSite: "none",
         });
         // localStorage.setItem("token", res.data.access_token);
         if (res.status === 200) {

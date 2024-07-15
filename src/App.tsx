@@ -38,6 +38,8 @@ function App() {
     }
   }, [setToken]);
 
+  console.log("token app.tsx: ", token);
+
   return (
     <Routes>
       <Route path="/" element={token ? <Layout /> : <LoginPage />}>
