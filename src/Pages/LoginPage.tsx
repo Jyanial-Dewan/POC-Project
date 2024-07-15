@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 interface formData {
   email: string;
@@ -48,7 +49,11 @@ const LoginPage = () => {
       .then((res) => {
         console.log(res.data.access_token);
         setToken(res.data.access_token);
-        localStorage.setItem("token", (res.data.access_token));
+        Cookies.set("token", res.data.access_token, {
+          expires: 7,
+          secure: true,
+        });
+        localStorage.setItem("token", res.data.access_token);
         console.log(res);
         // console.log(res.data);
         if (res.status === 200) {
