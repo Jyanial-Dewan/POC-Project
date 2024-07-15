@@ -44,9 +44,9 @@ const LoginPage = () => {
         }
       )
       .then((res) => {
-        console.log(res.data);
-        setToken(res.data);
-        localStorage.setItem("token", JSON.stringify(res.data));
+        console.log(res.data.access_token);
+        setToken(res.data.access_token);
+        localStorage.setItem("token", (res.data.access_token));
       })
       .catch((error) => toast.error(error?.response?.data?.error));
   };

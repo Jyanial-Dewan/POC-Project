@@ -32,14 +32,14 @@ function App() {
   useEffect(()=> {
     const savedToken = localStorage.getItem("token");
     if(savedToken) {
-      setToken(JSON.parse(savedToken))
+      setToken(savedToken)
     }
   }, [setToken])
 
 
  return (
   <Routes>
-    <Route path="/" element={token.access_token? <Layout/> : <LoginPage/>}>
+    <Route path="/" element={token? <Layout/> : <LoginPage/>}>
       <Route path="/home" element={<HomePage/>}/>
       <Route path="/alerts" element={<AlertsPage/>}/>
       <Route path="/tasks" element={<TasksPage/>}/>

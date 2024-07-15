@@ -26,7 +26,7 @@ const Topbar = () => {
 
     const handleSignOut = () => {
       localStorage.removeItem('token');
-      setToken({})
+      setToken('')
     }
 
   return (
@@ -64,7 +64,7 @@ const Topbar = () => {
             <img src="https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="w-[2.5rem] h-[2.5rem] rounded-full object-cover object-center" />
           </DropdownMenuTrigger>
           <DropdownMenuContent className="bg-white text-[#0D0D0D] flex flex-col gap-1 w-40 p-2 mt-[0.6rem]">
-            <DropdownMenuLabel>{token.user_name}</DropdownMenuLabel>
+            <DropdownMenuLabel>{token}</DropdownMenuLabel>
             <div className="h-[0.5px] w-full bg-[#d3d3d3]"></div>
             <DropdownMenuSeparator />
             <NavLink className={({isActive}) => isActive? "bg-[#A68A91]/20 p-1 rounded-md hover:translate-x-1 duration-300":"hover:translate-x-1 duration-300"} to="/profile">
