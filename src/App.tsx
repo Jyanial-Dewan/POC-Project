@@ -31,6 +31,7 @@ function App() {
 
   useEffect(() => {
     const savedToken = localStorage.getItem("token");
+    console.log("saved: ", savedToken);
     if (savedToken) {
       // setToken(JSON.parse(savedToken))
     }
