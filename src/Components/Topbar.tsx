@@ -22,7 +22,7 @@ import {
 import Cookies from "js-cookie";
 
 const Topbar = () => {
-  const { open, setOpen, setToken, token } = useGlobalContext();
+  const { open, setOpen, setToken } = useGlobalContext();
 
   const handleSignOut = () => {
     // localStorage.removeItem("token");
