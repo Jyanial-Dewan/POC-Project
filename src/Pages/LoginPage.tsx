@@ -29,10 +29,18 @@ const LoginPage = () => {
     
     const login = async () => {
         try {
-            const response = await axios.post("/api/v2/login", {
-              email: formData.email,
-              password: formData.password,
-            });
+            const response = await axios.post(
+                "/api/v2/login",
+                {
+                  email: formData.email,
+                  password: formData.password,
+                },
+                {
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                }
+              );
             setToken(response.data);
             localStorage.setItem("token", JSON.stringify(response.data));
           } catch (error) {
