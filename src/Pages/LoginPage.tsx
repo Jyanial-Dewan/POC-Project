@@ -5,6 +5,7 @@ import { useGlobalContext } from "../Context/GlobalContext";
 import React, { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 interface formData {
   email: string;
@@ -28,6 +29,7 @@ const LoginPage = () => {
       [name]: value,
     }));
   };
+  const navigate = useNavigate();
 
   const login = async () => {
     await axios
@@ -47,6 +49,13 @@ const LoginPage = () => {
         console.log(res.data.access_token);
         setToken(res.data.access_token);
         localStorage.setItem("token", (res.data.access_token));
+        console.log(res);
+        // console.log(res.data);
+        if (res.status === 200) {
+          navigate("/home");
+        }
+        setToken(res.data);
+        localStorage.setItem("token", JSON.stringify(res.data));
       })
       .catch((error) => toast.error(error?.response?.data?.error));
   };
@@ -75,7 +84,7 @@ const LoginPage = () => {
           <div className="flex flex-col gap-1">
             <label className="text-[#8d99ae]">Password</label>
             <input
-              type="text"
+              type="password"
               placeholder="Enter password"
               name="password"
               value={formData.password}
