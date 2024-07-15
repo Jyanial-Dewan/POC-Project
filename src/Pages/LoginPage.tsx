@@ -75,7 +75,7 @@ const LoginPage = () => {
           <div className="flex flex-col gap-1">
             <label className="text-[#8d99ae]">Password</label>
             <input
-              type="text"
+              type="password"
               placeholder="Enter password"
               name="password"
               value={formData.password}
