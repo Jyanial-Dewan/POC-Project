@@ -23,20 +23,21 @@ import LoginPage from "./Pages/LoginPage";
 import ProfilePage from "./Pages/ProfilePage";
 import { useGlobalContext } from "./Context/GlobalContext";
 import { useEffect } from "react";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 function App() {
   const { setToken, token } = useGlobalContext();
 
   //Fetch token from LocalStorage
 
   useEffect(() => {
-    // const savedToken = localStorage.getItem("token");
-    const savedToken = Cookies.get("token");
-    console.log("cookie", savedToken);
-    if (savedToken) {
-      setToken(savedToken);
+    const storageToken = localStorage.getItem("token");
+    console.log("storage: ", token);
+    // const savedToken = Cookies.get("token");
+    // console.log("cookie", savedToken);
+    if (storageToken) {
+      setToken(storageToken);
     }
-  }, [setToken]);
+  }, [token, setToken]);
 
   console.log("token app.tsx: ", token);
 

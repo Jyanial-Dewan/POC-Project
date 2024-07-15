@@ -25,7 +25,7 @@ const Topbar = () => {
   const { open, setOpen, setToken } = useGlobalContext();
 
   const handleSignOut = () => {
-    // localStorage.removeItem("token");
+    localStorage.removeItem("token");
     Cookies.remove("token");
     setToken("");
   };

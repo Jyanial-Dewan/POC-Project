@@ -5,7 +5,6 @@ import { useGlobalContext } from "../Context/GlobalContext";
 import React, { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 interface formData {
@@ -30,7 +29,6 @@ const LoginPage = () => {
       [name]: value,
     }));
   };
-  const navigate = useNavigate();
 
   const login = async () => {
     await axios
@@ -53,12 +51,7 @@ const LoginPage = () => {
           secure: false,
           sameSite: "none",
         });
-        // localStorage.setItem("token", res.data.access_token);
-        if (res.status === 200) {
-          navigate("/home");
-        }
-        // setToken(res.data);
-        // localStorage.setItem("token", JSON.stringify(res.data));
+        localStorage.setItem("token", res.data.access_token);
       })
       .catch((error) => toast.error(error?.response?.data?.error));
   };
