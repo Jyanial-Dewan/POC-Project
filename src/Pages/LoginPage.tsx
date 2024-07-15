@@ -5,6 +5,7 @@ import { useGlobalContext } from "../Context/GlobalContext";
 import React, { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 interface formData {
   email: string;
@@ -28,6 +29,7 @@ const LoginPage = () => {
       [name]: value,
     }));
   };
+  const navigate = useNavigate();
 
   const login = async () => {
     await axios
@@ -44,7 +46,11 @@ const LoginPage = () => {
         }
       )
       .then((res) => {
-        console.log(res.data);
+        console.log(res);
+        // console.log(res.data);
+        if (res.status === 200) {
+          navigate("/home");
+        }
         setToken(res.data);
         localStorage.setItem("token", JSON.stringify(res.data));
       })
