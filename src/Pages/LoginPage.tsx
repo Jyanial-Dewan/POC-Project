@@ -47,20 +47,17 @@ const LoginPage = () => {
         }
       )
       .then((res) => {
-        console.log(res.data.access_token);
         setToken(res.data.access_token);
         Cookies.set("token", res.data.access_token, {
           expires: 7,
           secure: true,
         });
-        localStorage.setItem("token", res.data.access_token);
-        console.log(res);
-        // console.log(res.data);
+        // localStorage.setItem("token", res.data.access_token);
         if (res.status === 200) {
           navigate("/home");
         }
-        setToken(res.data);
-        localStorage.setItem("token", JSON.stringify(res.data));
+        // setToken(res.data);
+        // localStorage.setItem("token", JSON.stringify(res.data));
       })
       .catch((error) => toast.error(error?.response?.data?.error));
   };
