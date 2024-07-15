@@ -4,7 +4,7 @@ import { GoBell } from "react-icons/go";
 import { IoListOutline } from "react-icons/io5";
 import { BsEnvelope } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../../public/Images/logo-2.png";
 import { useGlobalContext } from "../Context/GlobalContext";
 import { MdLogout } from "react-icons/md";
@@ -22,11 +22,11 @@ import {
 
 
 const Topbar = () => {
-    const {open, setOpen, setToken} = useGlobalContext();
+    const {open, setOpen, setToken, token} = useGlobalContext();
 
     const handleSignOut = () => {
       localStorage.removeItem('token');
-      setToken('')
+      setToken({})
     }
 
   return (
@@ -63,29 +63,31 @@ const Topbar = () => {
           <DropdownMenuTrigger className="focus: outline-none">
             <img src="https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="w-[2.5rem] h-[2.5rem] rounded-full object-cover object-center" />
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="bg-[#f3f3f3] text-[#250001] flex flex-col gap-1 w-40 pl-4 pb-4 pt-2 mt-[0.6rem]">
-            <DropdownMenuLabel className="pb-1 border-b border-[#250001]/50">My Account</DropdownMenuLabel>
+          <DropdownMenuContent className="bg-white text-[#0D0D0D] flex flex-col gap-1 w-40 p-2 mt-[0.6rem]">
+            <DropdownMenuLabel>{token.user_name}</DropdownMenuLabel>
+            <div className="h-[0.5px] w-full bg-[#d3d3d3]"></div>
             <DropdownMenuSeparator />
-            <Link className="hover:translate-x-1 duration-300" to="/profile">
+            <NavLink className={({isActive}) => isActive? "bg-[#A68A91]/20 p-1 rounded-md hover:translate-x-1 duration-300":"hover:translate-x-1 duration-300"} to="/profile">
               <DropdownMenuItem className="flex gap-2">
                 <FiUser className="lg"/>
                 <p>Profile</p>
               </DropdownMenuItem>
-            </Link>
-            <Link className="hover:translate-x-1 duration-300" to="/security">
+            </NavLink>
+            <NavLink className="hover:translate-x-1 duration-300" to="/security">
               <DropdownMenuItem className="flex gap-2">
                 <MdOutlineSecurity className="lg"/>
                 <p>Security</p>
               </DropdownMenuItem> 
-            </Link>
-            <Link className="hover:translate-x-1 duration-300" to="/settings">
+            </NavLink>
+            <NavLink className="hover:translate-x-1 duration-300" to="/settings">
               <DropdownMenuItem className="flex gap-2">
                 <IoSettingsOutline className="lg"/>
                 <p>Settings</p>
               </DropdownMenuItem>
-            </Link>
-            <DropdownMenuSeparator className="text-slate-100" />
-            <DropdownMenuItem onClick={handleSignOut} className="text-[#a50104] cursor-pointer flex items-center gap-1 hover:translate-x-1 duration-300 pt-1 border-t border-[#250001]/50">
+            </NavLink>
+            <DropdownMenuSeparator className="text-slate-100"/>
+            <div className="h-[0.5px] w-full bg-[#d3d3d3]"></div>
+            <DropdownMenuItem onClick={handleSignOut} className="text-[#A60321] cursor-pointer flex items-center gap-1 hover:translate-x-1 duration-300">
               <MdLogout className="text-lg"/>
               <p>Sign Out</p>
             </DropdownMenuItem>

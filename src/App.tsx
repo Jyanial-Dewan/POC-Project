@@ -20,6 +20,7 @@ import ManageAccessPathConditionsPage from "./Pages/ManageAccessPathConditionsPa
 import ManageUserDefinedObjectsPage from "./Pages/ManageUserDefinedObjectsPage"
 import ManageCCMJobsPage from "./Pages/ManageCCMJobsPage"
 import LoginPage from "./Pages/LoginPage"
+import ProfilePage from "./Pages/ProfilePage"
 import { useGlobalContext } from "./Context/GlobalContext"
 import { useEffect } from "react"
 
@@ -38,10 +39,11 @@ function App() {
 
  return (
   <Routes>
-    <Route path="/" element={token? <Layout/> : <LoginPage/>}>
+    <Route path="/" element={token.access_token? <Layout/> : <LoginPage/>}>
       <Route path="/home" element={<HomePage/>}/>
       <Route path="/alerts" element={<AlertsPage/>}/>
       <Route path="/tasks" element={<TasksPage/>}/>
+      <Route path="/profile" element={<ProfilePage/>}/>
       <Route path="/notifications/inbox" element={<NotificationPage/>}/>
       <Route path="/risk-management" element={<RiskManagementPage/>}/>
       <Route path="/control-management" element={<ControlManagementPage/>}/>
