@@ -19,14 +19,14 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../../@/components/ui/dropdown-menu";
-import Cookies from "js-cookie";
+
 
 const Topbar = () => {
   const { open, setOpen, setToken } = useGlobalContext();
 
   const handleSignOut = () => {
     localStorage.removeItem("token");
-    Cookies.remove("token");
+    
     setToken("");
   };
 
