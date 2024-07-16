@@ -47,18 +47,24 @@ export function GlobalContextProvider({
   const [token, setToken] = useState<string>("");
   const [persons, setPersons] = useState<Persons[]>([]);
 
-  const fetchData = async () => {
-    await axios
+  //   const fetchData = async () => {
+  //     await axios
+  //       .get("/api/v2/def-persons")
+  //       .then((res) => {
+  //         console.log(res.data);
+  //         setPersons(res.data);
+  //       })
+  //       .catch((err) => console.log(err));
+  //   };
+
+  useEffect(() => {
+    axios
       .get("/api/v2/def-persons")
       .then((res) => {
         console.log(res.data);
         setPersons(res.data);
       })
       .catch((err) => console.log(err));
-  };
-
-  useEffect(() => {
-    fetchData();
   }, []);
   console.log(persons);
 
