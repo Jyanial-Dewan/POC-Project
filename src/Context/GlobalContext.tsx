@@ -47,26 +47,19 @@ export function GlobalContextProvider({
   const [token, setToken] = useState<string>("");
   const [persons, setPersons] = useState<Persons[]>([]);
 
-  //   const fetchData = async () => {
-  //     await axios
-  //       .get("/api/v2/def-persons")
-  //       .then((res) => {
-  //         console.log(res.data);
-  //         setPersons(res.data);
-  //       })
-  //       .catch((err) => console.log(err));
-  //   };
-
   useEffect(() => {
-    axios
-      .get("/api/v2/def-persons")
-      .then((res) => {
-        console.log(res.data);
-        setPersons(res.data);
-      })
-      .catch((err) => console.log(err));
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("/api/v2/def-persons");
+        setPersons(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
   }, []);
-  console.log(persons);
+  console.log("context: ", persons);
 
   return (
     <GlobalContex.Provider value={{ open, setOpen, token, setToken, persons }}>
