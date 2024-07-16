@@ -50,7 +50,9 @@ export function GlobalContextProvider({
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("/api/v2/def-persons");
+        const response = await axios.get(
+          "http://129.146.85.244:3000/def-persons"
+        );
         setPersons(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
