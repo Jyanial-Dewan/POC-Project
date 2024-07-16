@@ -14,7 +14,7 @@ interface Persons {
 
 const HomePage = () => {
   // const { persons } = useGlobalContext();
-  const [persons, setPersons] = useState<Persons[]>([]);
+  const [persons, setPersons] = useState<Persons[] | []>([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
