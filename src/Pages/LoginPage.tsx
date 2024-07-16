@@ -33,7 +33,7 @@ const LoginPage = () => {
   const login = async () => {
     await axios
       .post(
-        "/api/v2/login",
+        "http://129.146.85.244:3000/login",
         {
           email: formData.email,
           password: formData.password,
