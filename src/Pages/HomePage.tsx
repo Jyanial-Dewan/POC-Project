@@ -10,6 +10,7 @@ interface Persons {
   last_name?: string;
   job_title?: string;
 }
+[];
 
 const HomePage = () => {
   // const { persons } = useGlobalContext();
